@@ -507,7 +507,7 @@ opacity:0.8;
 
 <body>
 <video autoplay muted loop playsinline class="bg-video">
-    <source src="Video.mp4" type="video/mp4">
+    <source src="video.mp4" type="video/mp4">
 </video>
 
 <div class="video-overlay"></div>
@@ -545,6 +545,7 @@ opacity:0.8;
 </div>
 
 </div>
+<audio id="loveAudio"></audio>
 
 <script>
 
@@ -658,19 +659,19 @@ document.getElementById("content").innerHTML=`
 
 <div class="song-grid">
 
-${songCard("Kaathalae Kaathalae","💜")}
-${songCard("Hosanna","✨")}
-${songCard("Megham Karukatha","🌸")}
-${songCard("Munbe Vaa","🎧")}
-${songCard("Thenmozhi","🎶")}
+${songCard("Kanazhaga","💜")}
+${songCard("Kadhal sadugudu","✨")}
+${songCard("Ivan yaaro","🌸")}
+${songCard("Uyire uyire oh oh","🎧")}
+${songCard("Inum konjam Neram","🎶")}
 
 </div>
 `;
 }
 
-function songCard(title,icon){
+function songCard(title, icon){
 return `
-<div class="song-card" onclick="selectedSong='${title}'; finalPage();">
+<div class="song-card" onclick="playSong('${title}')">
 
     <div class="vinyl">
         ${icon}
@@ -684,6 +685,31 @@ return `
 </div>
 `;
 }
+
+function playSong(title) {
+
+    selectedSong = title;
+
+    const audio = document.getElementById("loveAudio");
+
+    // Map songs to actual mp3 files
+    const songs = {
+        "Kanazhaga": "audio/Kanazhaga.mp3",
+        "Kadhal sadugudu": "audio/_Alaipayuthey_Kadhal_Sadugudu.mp3",
+        "Ivan yaaro": "audio/_Ivan_Yaaro_Ivan_Yaaro.mp3",
+        "Uyire uyire oh oh": "audio/_Oh_Oh_Thangamagan.mp3",
+        "Inum konjam Neram": "audio/_Innum_Konja_Neram_Mariyan.mp3"
+    };
+
+    audio.src = songs[title];
+    audio.play();
+
+    // Wait 30 seconds before going to next page
+    setTimeout(() => {
+        finalPage();
+    }, 2000);
+}
+
 
 function song(title)
 {
@@ -733,5 +759,3 @@ document.getElementById("content").innerHTML=`
 
 </body>
 </html>
-
-
