@@ -9,9 +9,30 @@
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
-background:linear-gradient(to bottom right,#e6d6f5,#c8a2e8);
+/*background:linear-gradient(to bottom right,#e6d6f5,#c8a2e8);*/
 min-height:100vh;
 
+}
+
+/* VIDEO BACKGROUND */
+.bg-video{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+}
+
+.video-overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(to bottom right, rgba(128,0,128,0.6), rgba(255,105,180,0.4));
+z-index:-1;
 }
 
 /* BANNERS */
@@ -32,6 +53,36 @@ display:inline-block;
 padding-left:100%;
 animation:scrollText 12s linear infinite;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400&display=swap');
+
+.love-note {
+    text-align: center;
+    padding: 20px;
+    color: rgb(33, 170, 12);
+}
+
+.love-note h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px;
+    color: #ffd6ff;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+.love-note p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    margin: 8px 0;
+    color: #ac0cd0;
+}
+
+.signature {
+    margin-top: 15px;
+    font-weight: 600;
+    color: #ffb3ec;
+}
+
 .top-banner{top:0;}
 .bottom-banner{bottom:0;}
 @keyframes scrollText{
@@ -455,6 +506,11 @@ opacity:0.8;
 </head>
 
 <body>
+<video autoplay muted loop playsinline class="bg-video">
+    <source src="video.mp4" type="video/mp4">
+</video>
+
+<div class="video-overlay"></div>
 
 <div class="love-banner top-banner">
 <span>💜 I LOVE YOU PATTUKUTTY 💜 I LOVE YOU PATTUKUTTY 💜</span>
@@ -467,8 +523,17 @@ opacity:0.8;
 <div class="container" id="content">
 
 <div class="envelope" onclick="openEnvelope(this)">
+    
 <div class="envelope-front">💌</div>
+<div class="love-note">
+  <h2>💌 Hey My Love 💜</h2>
+  <p>Hey honey, this little surprise is just for you ❤️</p>
+  <p>Every moment with you feels like my favorite memory in the making ✨</p>
+  <p>You make my world softer, brighter, and full of love 🌸</p>
+  <p class="signature">Forever yours, today and always 💞</p>
 </div>
+</div>
+
 
 <div class="image-container">
 <img src="images/image1.png">
@@ -516,8 +581,8 @@ document.getElementById("content").innerHTML=`
 <div class="movie-grid">
 ${movie("OK Kanmani","images/okkanmani.jpeg")}
 ${movie("96","images/96.jpeg")}
-${movie("Thiruchitrambalam","images/thiruchitrambalam.jpeg")}
-${movie("Love Today","images/love-today.jpeg")}
+${movie("Alaipaayuthae","images/thiruchitrambalam.jpeg")}
+${movie("Minnalae","images/love-today.jpeg")}
 ${movie("Sillunu Oru Kadhal","images/sillunu.jpeg")}
 </div>`;
 }
