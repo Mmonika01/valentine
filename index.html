@@ -693,12 +693,13 @@ function playSong(title) {
     const audio = document.getElementById("loveAudio");
 
     const songs = {
-        "Kanazhaga": "audio/Kanazhaga.mp3",
-        "Kadhal sadugudu": "audio/_Alaipayuthey_Kadhal_Sadugudu.mp3",
-        "Ivan yaaro": "audio/_Ivan_Yaaro_Ivan_Yaaro.mp3",
-        "Uyire uyire oh oh": "audio/_Oh_Oh_Thangamagan.mp3",
-        "Inum konjam Neram": "audio/_Innum_Konja_Neram_Mariyan.mp3"
-    };
+    "Kanazhaga": "audio/Kanazhaga.mp3",
+    "Kadhal sadugudu": "audio/_Alaipayuthey_Kadhal_Sadugudu.mp3",
+    "Ivan yaaro": "audio/_Ivan_Yaaro_Ivan_Yaaro.mp3",
+    "Uyire uyire oh oh": "audio/_Oh_Oh_Thangamagan.mp3",
+    "Inum konjam Neram": "audio/_Innum_Konja_Neram_Mariyan.mp3"
+};
+
 
     audio.src = songs[title];
     audio.load();
@@ -766,5 +767,6 @@ document.getElementById("content").innerHTML=`
 
 </body>
 </html>
+
 
 
